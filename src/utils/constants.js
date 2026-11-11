@@ -1,6 +1,6 @@
 // App-wide constants
 
-export const APP_NAME = 'Glamour Studio'
+export const APP_NAME = 'My Beauty Salon'
 export const APP_TAGLINE = 'Where Beauty Meets Excellence'
 
 export const ROUTES = {
