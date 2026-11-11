@@ -17,6 +17,18 @@ export const ROUTES = {
   ADMIN: '/admin',
 }
 
+// Navigation links used by both Navbar and Footer
+// Add or remove a page here and both components update automatically
+export const NAV_LINKS = [
+  { label: 'Home',     path: '/'         },
+  { label: 'About',    path: '/about'    },
+  { label: 'Services', path: '/services' },
+  { label: 'Stylists', path: '/stylists' },
+  { label: 'Gallery',  path: '/gallery'  },
+  { label: 'Reviews',  path: '/reviews'  },
+  { label: 'Contact',  path: '/contact'  },
+]
+
 export const APPOINTMENT_STATUS = {
   PENDING: 'pending',
   CONFIRMED: 'confirmed',

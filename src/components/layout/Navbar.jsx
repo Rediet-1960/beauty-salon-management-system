@@ -18,19 +18,13 @@ import { Menu, X, Sparkles } from 'lucide-react'
 import logoPlaceholder from '../../assets/react.svg'
 // Temporary logo — we'll replace this with the real salon logo later
 
-// ── The navigation links data ──────────────────
-// We define links as an array so we don't repeat <NavLink> code 7 times.
-// This is called the DRY principle: Don't Repeat Yourself.
-// When we need to add or remove a link, we only edit this array.
-const navLinks = [
-  { label: 'Home',      path: '/'         },
-  { label: 'About',     path: '/about'    },
-  { label: 'Services',  path: '/services' },
-  { label: 'Stylists',  path: '/stylists' },
-  { label: 'Reviews',   path: '/reviews'  },
-  { label: 'Gallery',   path: '/gallery'  },
-  { label: 'Contact',   path: '/contact'  },
-]
+import { NAV_LINKS } from '../../utils/constants'
+import Container from '../ui/Container'
+// Navigation links imported from constants so Navbar and Footer stay in sync.
+// Add a new page in constants.js and it appears here automatically.
+
+// Rename to navLinks for use in this component
+const navLinks = NAV_LINKS
 
 // ── The Navbar component ───────────────────────
 function Navbar() {
@@ -60,16 +54,14 @@ function Navbar() {
     // bg-zinc-900     → very dark background (luxury feel)
     // shadow-lg       → subtle shadow below navbar
     <nav className="sticky top-0 z-50 bg-zinc-900 shadow-lg">
-
       {/* ── Inner container ───────────────────────
           max-w-7xl mx-auto → centers content and limits max width
           px-4 sm:px-6 lg:px-8 → horizontal padding, more on larger screens
           h-16 → fixed height of 64px
           flex items-center justify-between → logo left, links center, button right
       */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container className="px-10 lg:px-16">
         <div className="flex items-center justify-between h-16">
-
           {/* ── Logo section (left side) ─────────── */}
           <NavLink to="/" className="flex items-center gap-2 shrink-0">
             <img
@@ -86,14 +78,14 @@ function Navbar() {
               hidden md:flex → hidden on mobile, shown on medium+ screens
           */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               // We use link.path as the key because it is unique
               <NavLink
                 key={link.path}
                 to={link.path}
                 className={linkClass}
                 // end prop on Home link: only mark active on exact "/" match
-                end={link.path === '/'}
+                end={link.path === "/"}
               >
                 {link.label}
               </NavLink>
@@ -102,14 +94,13 @@ function Navbar() {
 
           {/* ── Right side: Book Now + hamburger ─── */}
           <div className="flex items-center gap-4">
-
             {/* Book Now button — hidden on mobile, shown on md+ screens */}
             <NavLink
               to="/services"
               className="hidden md:inline-flex items-center gap-1.5 rounded-full
                          bg-amber-400 text-zinc-900 font-extrabold text-base
                          hover:bg-amber-300 transition-colors duration-200"
-              style={{ padding: '10px 32px' }}
+              style={{ padding: "10px 32px" }}
             >
               <Sparkles size={17} />
               Book Now
@@ -126,10 +117,9 @@ function Navbar() {
               {/* Show X icon if menu is open, hamburger if closed */}
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* ── Mobile dropdown menu ────────────────────
           Only renders in the DOM when isMenuOpen is true
@@ -137,21 +127,20 @@ function Navbar() {
       */}
       {isMenuOpen && (
         <div className="md:hidden bg-zinc-800 border-t border-zinc-700 px-4 py-4">
-
           {/* Mobile nav links — stacked vertically */}
           <div className="flex flex-col gap-1">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 onClick={closeMenu}
                 // closeMenu: clicking a link closes the mobile menu
-                end={link.path === '/'}
+                end={link.path === "/"}
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'bg-zinc-700 text-amber-400'
-                      : 'text-gray-200 hover:bg-zinc-700 hover:text-amber-400'
+                      ? "bg-zinc-700 text-amber-400"
+                      : "text-gray-200 hover:bg-zinc-700 hover:text-amber-400"
                   }`
                 }
               >
@@ -173,12 +162,10 @@ function Navbar() {
               Book Now
             </NavLink>
           </div>
-
         </div>
       )}
-
     </nav>
-  )
+  );
 }
 
 export default Navbar
