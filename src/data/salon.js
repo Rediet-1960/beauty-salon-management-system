@@ -22,8 +22,25 @@ export const salonInfo = {
   },
 }
 
+// Hero section content — Admin editable from dashboard later
+export const heroContent = {
+  headline:        'Where Beauty Meets',
+  headlineAccent:  'Confidence',
+  description:     'Experience premium hair, skincare, nail, and beauty services delivered by skilled professionals in a relaxing and luxurious environment.',
+  primaryBtn:      'Book Appointment',
+  secondaryBtn:    'Explore Services',
+  // image will be replaced with a real upload from the Admin dashboard
+  image:           null,
+}
+
+// Trust indicators — Admin editable later
+export const trustIndicators = [
+  { id: 1, icon: '⭐', value: '4.9', label: 'Rating'         },
+  { id: 2, icon: '👩', value: '500+', label: 'Happy Clients' },
+  { id: 3, icon: '🏆', value: '',    label: 'Professional Staff' },
+]
+
 // Working hours — Admin can update these from the dashboard later.
-// Each entry has: day label, open time, close time, and a closed flag.
 export const workingHours = [
   { id: 1, day: 'Monday – Friday', open: '8:00 AM', close: '8:00 PM', isClosed: false },
   { id: 2, day: 'Saturday',        open: '9:00 AM', close: '7:00 PM', isClosed: false },

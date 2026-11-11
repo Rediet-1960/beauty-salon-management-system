@@ -1,19 +1,53 @@
+// Home page — single-page landing
+// All sections live here. Navbar links scroll to each section by id.
+
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+import Hero from '../components/sections/Hero'
 
 function Home() {
   return (
-    <div className="min-h-screen bg-zinc-950 flex flex-col">
+    <div className="flex flex-col min-h-screen bg-zinc-950">
       <Navbar />
 
-      {/* Page content grows to fill space, pushing Footer to bottom */}
-      <main className="flex-1 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-amber-400">
-          Welcome to My Beauty Salon
-        </h1>
-        <p className="text-gray-400 mt-4">
-          I will build this section by section
-        </p>
+      <main className="flex-1">
+
+        {/* Each section has an id that the Navbar scrolls to */}
+        <section id="hero">
+          <Hero />
+        </section>
+
+        {/* ── Placeholder sections — built one by one ── */}
+        <section id="about"
+          className="min-h-screen flex items-center justify-center bg-zinc-900">
+          <p className="text-amber-400 text-3xl font-bold">About Section — coming soon</p>
+        </section>
+
+        <section id="services"
+          className="min-h-screen flex items-center justify-center bg-zinc-950">
+          <p className="text-amber-400 text-3xl font-bold">Services Section — coming soon</p>
+        </section>
+
+        <section id="stylists"
+          className="min-h-screen flex items-center justify-center bg-zinc-900">
+          <p className="text-amber-400 text-3xl font-bold">Stylists Section — coming soon</p>
+        </section>
+
+        <section id="gallery"
+          className="min-h-screen flex items-center justify-center bg-zinc-950">
+          <p className="text-amber-400 text-3xl font-bold">Gallery Section — coming soon</p>
+        </section>
+
+        <section id="reviews"
+          className="min-h-screen flex items-center justify-center bg-zinc-900">
+          <p className="text-amber-400 text-3xl font-bold">Reviews Section — coming soon</p>
+        </section>
+
+        <section id="contact"
+          className="min-h-screen flex items-center justify-center bg-zinc-950">
+          <p className="text-amber-400 text-3xl font-bold">Contact Section — coming soon</p>
+        </section>
+
       </main>
 
       <Footer />
