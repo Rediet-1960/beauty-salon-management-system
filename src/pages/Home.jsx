@@ -1,15 +1,23 @@
-// Home page — public landing page
-// We will build this section by section starting with Navbar and Hero
+// Home page — the main landing page of the salon
+// For now it just shows the Navbar so we can test it
+// We will add sections (Hero, Services preview, etc.) one by one
+
+import Navbar from '../components/layout/Navbar'
 
 function Home() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-center mt-10 text-pink-600">
-        Beauty Salon Management System
-      </h1>
-      <p className="text-center text-gray-500 mt-4">
-        Home page — coming soon
-      </p>
+    <div className="min-h-screen bg-zinc-950">
+      <Navbar />
+
+      {/* Temporary placeholder content */}
+      <div className="flex flex-col items-center justify-center h-96">
+        <h1 className="text-4xl font-bold text-amber-400">
+          Welcome to My Beauty Salon
+        </h1>
+        <p className="text-gray-400 mt-4">
+          I will build this section by section
+        </p>
+      </div>
     </div>
   )
 }
