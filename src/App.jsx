@@ -1,29 +1,26 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-// Public pages
+// The Home page is now a single-page landing page with all sections
 import Home from './pages/Home'
-import About from './pages/About'
-import Services from './pages/Services'
-import Stylists from './pages/Stylists'
-import Reviews from './pages/Reviews'
-import Gallery from './pages/Gallery'
-import Contact from './pages/Contact'
+
+// These remain as separate pages
+import Login from './pages/Login'
+import Register from './pages/Register'
 import NotFound from './pages/NotFound'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public routes — accessible to everyone */}
+        {/* Single-page landing — all public sections live here */}
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/stylists" element={<Stylists />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<Contact />} />
 
-        {/* 404 — catches any unknown route */}
+        {/* Separate routes — only for auth and booking */}
+        <Route path="/login"            element={<Login />} />
+        <Route path="/register"         element={<Register />} />
+        <Route path="/book-appointment" element={<Home />} /> {/* placeholder until Phase 4 */}
+
+        {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
